@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Atividade 1 javascript</title>
+</head>
+<body>
+  <script>
+   const opcoes = ["pedra", "papel", "tesoura"];
+
+const escolhaplayer = prompt("Escolha pedra, papel ou tesoura:").toLowerCase();
+const escolhaComputador = opcoes[Math.floor(Math.random() * 3)];
+
+alert(`Computador escolheu: ${escolhaComputador}`);
+
+if (escolhaplayer === escolhaComputador) {
+  alert("Empate!");
+} else if (
+  (escolhaplayer === "pedra" && escolhaComputador === "tesoura") ||
+  (escolhaplayer === "papel" && escolhaComputador === "pedra") ||
+  (escolhaplayer === "tesoura" && escolhaComputador === "papel")
+) {
+  alert("Você venceu!");
+} else if (opcoes.includes(escolhaplayer)) {
+  alert("Computador venceu!");
+} else {
+ alert("Opção inválida!");
+}
+  </script>
+</body>
+</html>

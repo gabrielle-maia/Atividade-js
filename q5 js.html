@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Atividade 1 javascript</title>
+</head>
+<body>
+  <script>
+    const termos = parseInt(prompt("Digite a quantidade de termos:"));
+let soma = 0;
+let numeroAtual = 0;
+let serie = [];
+
+for (let i = 1; i <= termos; i++) {
+  numeroAtual = numeroAtual * 10 + 1; 
+  serie.push(numeroAtual);
+  soma += numeroAtual;
+}
+
+alert(serie.join(" + "));
+alert("A soma é: " + soma);
+  </script>
+</body>
+</html>
