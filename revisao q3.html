@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Questão 3</title>
+</head>
+<body>
+  <h2>Carrinho de Compras</h2>
+  <input type="text" id="produto" placeholder="Digite o produto">
+  <button onclick="adicionar()">Adicionar</button>
+  <button onclick="remover()">Remover último</button>
+
+  <h3>Itens no carrinho:</h3>
+  <ul id="carrinho"></ul>
+
+  <script>
+    let itens = [];
+
+    function atualizarCarrinho() {
+      const lista = document.getElementById("carrinho");
+      lista.innerHTML = "";
+      itens.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.textContent = `${index + 1}. ${item}`;
+        lista.appendChild(li);
+      });
+    }
+
+    function adicionar() {
+      const produto = document.getElementById("produto").value.trim();
+      if (produto !== "") {
+        itens.push(produto);
+        document.getElementById("produto").value = "";
+        atualizarCarrinho();
+      }
+    }
+
+    function remover() {
+      if (itens.length > 0) {
+        itens.pop();
+        atualizarCarrinho();
+      }
+    }
+  </script>
+</body>
+</html>

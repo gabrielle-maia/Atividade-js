@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Questão 2</title>
+</head>
+<body>
+  <h2>Eventos na página</h2>
+  <button id="btn">Clique aqui</button>
+  <input type="text" id="texto" placeholder="Digite algo e pressione Enter">
+  <div id="saida"></div>
+
+  <script>
+    const saida = document.getElementById("saida");
+
+    function mostrarMensagem(mensagem) {
+      const p = document.createElement("p");
+      p.textContent = mensagem;
+      saida.appendChild(p);
+    }
+
+    // Evento de clique
+    document.getElementById("btn").addEventListener("click", () => {
+      mostrarMensagem("Você clicou no botão!");
+    });
+
+    // Evento de pressionar tecla
+    document.getElementById("texto").addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        mostrarMensagem("Você digitou: " + event.target.value);
+        event.target.value = "";
+      }
+    });
+  </script>
+</body>
+</html>

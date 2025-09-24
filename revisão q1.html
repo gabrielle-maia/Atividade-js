@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Questão 1</title>
+</head>
+<body>
+  <h2>Criar elementos dinamicamente</h2>
+  <select id="elemento">
+    <option value="p">Parágrafo</option>
+    <option value="ul">Lista</option>
+    <option value="a">Link</option>
+    <option value="table">Tabela</option>
+  </select>
+  <button onclick="criarElemento()">Criar</button>
+  <div id="resultado"></div>
+
+  <script>
+    function criarElemento() {
+      const escolha = document.getElementById("elemento").value;
+      const container = document.getElementById("resultado");
+      let novoElemento;
+
+      if (escolha === "p") {
+        novoElemento = document.createElement("p");
+        novoElemento.textContent = "Este é um parágrafo criado dinamicamente.";
+      } 
+      else if (escolha === "ul") {
+        novoElemento = document.createElement("ul");
+        ["Item 1", "Item 2", "Item 3"].forEach(item => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          novoElemento.appendChild(li);
+        });
+      } 
+      else if (escolha === "a") {
+        novoElemento = document.createElement("a");
+        novoElemento.href = "https://developer.mozilla.org/";
+        novoElemento.target = "_blank";
+        novoElemento.textContent = "Visitar MDN";
+      } 
+      else if (escolha === "table") {
+        novoElemento = document.createElement("table");
+        novoElemento.border = "1";
+        for (let i = 0; i < 2; i++) {
+          const tr = document.createElement("tr");
+          for (let j = 0; j < 2; j++) {
+            const td = document.createElement("td");
+            td.textContent = `Célula ${i+1}-${j+1}`;
+            tr.appendChild(td);
+          }
+          novoElemento.appendChild(tr);
+        }
+      }
+
+      container.appendChild(novoElemento);
+    }
+  </script>
+</body>
+</html>
